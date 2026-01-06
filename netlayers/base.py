@@ -97,7 +97,7 @@ class CapTPSocket(socket.socket):
         """ Close the socket """
         # Graceful shutdown: signal we're done writing, wait for pending sends
         self.shutdown(socket.SHUT_RDWR)
-        self.close()
+        super().close()
 
 
 class Netlayer(ABC):
