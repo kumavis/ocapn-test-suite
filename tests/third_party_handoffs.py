@@ -184,6 +184,7 @@ class HandoffRemoteAsExporter(HandoffTestCase):
     def tearDown(self, *args, **kwargs):
         self.g2e_session.close()
         self.r2e_session.close()
+        self.netlayer = self._create_new_netlayer()
         return super().tearDown(*args, **kwargs)
 
     def make_valid_handoff(self, gift_id=b"my-gift"):

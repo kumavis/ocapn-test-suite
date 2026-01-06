@@ -93,12 +93,6 @@ class CapTPSocket(socket.socket):
         assert isinstance(encoded_message, syrup.Record)
         return decode_captp_message(encoded_message)
 
-    def close(self):
-        """ Close the socket """
-        # Graceful shutdown: signal we're done writing, wait for pending sends
-        self.shutdown(socket.SHUT_RDWR)
-        super().close()
-
 
 class Netlayer(ABC):
     """ Base class for all netlayers """
